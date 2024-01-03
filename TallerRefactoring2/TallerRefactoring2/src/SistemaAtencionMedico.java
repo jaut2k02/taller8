@@ -39,29 +39,20 @@ public class SistemaAtencionMedico {
         }
         return costoConsulta-valorARestar;
     }
-
-    // se puede parametrizar (obtener...)
-    public Paciente obtenerPaciente(String nombrePaciente) {
-        for(Paciente paciente : pacientes){
-            if (paciente.getNombre().equals(nombrePaciente))
-                return paciente;
+    public T obtenerElementoPorNombre(String nombre, List<T> listaParametro){
+        for(T elemento : listaParametro){
+            if(elemento instanceof ServicioMedico){
+                if(((ServicioMedico) elemento).getNombre().equals(nombre)){
+                    return elemento;
+                }
+            }else{
+                if(((Persona) elemento).getNombre().equals(nombre)){
+                    return elemento:
+                }
+            }
         }
         return null;
     }
 
-    public ServicioMedico obtenerServicioMedico(String nombreServicio) {
-        for(ServicioMedico servicioMedico : serviciosMedicos){
-            if (servicioMedico.getNombre().equals(nombreServicio))
-                return servicioMedico;
-        }
-        return null;
-    }
-
-    public Medico obtenerMedico(String nombreMedico) {
-        for(Medico medico : medicos){
-            if (medico.getNombre().equals(nombreMedico))
-                return medico;
-        }
-        return null;
-    }
+   
 }
