@@ -10,4 +10,8 @@ public class Paciente extends Persona {
     public boolean esAdultoMayor(){
         return getEdad()>= ES_ADULTO_MAYOR;
     }
+
+    public HistorialMedico getHistorialMedico(){
+        return this.historialMedico;
+    }
 }
