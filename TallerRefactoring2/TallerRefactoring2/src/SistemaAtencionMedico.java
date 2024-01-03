@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SistemaAtencionMedico {
+
+    static final double DESCUENTO_ADULTOS_MAYORES = 0.25;
     private List<Paciente> pacientes;
     private List<Medico> medicos;
     private List<ServicioMedico> serviciosMedicos;
@@ -29,16 +31,18 @@ public class SistemaAtencionMedico {
         int edadPaciente = paciente.getEdad();
         costoConsulta = calcularValorFinalConsulta(costoConsulta,edadPaciente);
         System.out.println("Se han cobrado "+ costoConsulta+ " dolares de su tarjeta de credito");
-        paciente.historialMedico.getConsultas().add(consulta); //Hacer esto es incorrecto
+        paciente.getHistorialMedico.addConsulta(consulta); //Hacer esto es incorrecto
     }
 
-    public double calcularValorFinalConsulta(double costoConsulta, int edadPaciente){
+    
+    public double calcularValorFinalConsulta(ServicioMedico servicioMedico, Paciente paciente){
         double valorARestar = 0;
-        if(edadPaciente>=65){
-            valorARestar = costoConsulta*0.25; //0.25 es el descuento para adultos mayores
+        if(paciente.getEdad()>= Paciente.ES_ADULTO_MAYOR){
+            valorARestar = servicioMedico.getCosto().get*DESCUENTO_ADULTOS_MAYORES; //0.25 es el descuento para adultos mayores
         }
         return costoConsulta-valorARestar;
     }
+    
     public T obtenerElementoPorNombre(String nombre, List<T> listaParametro){
         for(T elemento : listaParametro){
             if(elemento instanceof ServicioMedico){
