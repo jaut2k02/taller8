@@ -14,15 +14,24 @@ public class HistorialMedico {
         return consultas;
     }
 
-    public void setConsultas(List<Consulta> consultas) {
-        this.consultas = consultas;
+    public void addConsulta(Consulta consulta){
+        this.consultas.add(consulta);
+    }
+
+    public void removeConsulta(Consulta consulta){
+        this.consultas.remove(consulta);
     }
 
     public List<RecetaMedica> getRecetasMedicas() {
         return recetasMedicas;
     }
 
-    public void setRecetasMedicas(List<RecetaMedica> recetasMedicas) {
-        this.recetasMedicas = recetasMedicas;
+    public void addRecetaMedica(RecetaMedica recetaMedica){
+        this.recetasMedicas.add(recetaMedica);
     }
+
+    public void removeRecetaMedica(RecetaMedica recetaMedica){
+        this.recetasMedicas.remove(recetaMedica);
+    }
+
 }
