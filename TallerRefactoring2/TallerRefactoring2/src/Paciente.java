@@ -8,6 +8,6 @@ public class Paciente extends Persona {
     }
 
     public boolean esAdultoMayor(){
-        return super.getEdad()>= ES_ADULTO_MAYOR;
+        return getEdad()>= ES_ADULTO_MAYOR;
     }
 }
